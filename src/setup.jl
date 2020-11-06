@@ -322,7 +322,7 @@ function OCPdef!(n::NLOpt{T}) where { T <: Number }
             # additional constraints
             for num in 1:length(n.ocp.NLcon)
                 ch = addCon(n,x_int,u_int,L,num)
-                newConstraint!(n,ch,Symbol(string("ch",num))) # TODO could let the user name these
+                newConstraint!(n,ch[num],Symbol(string("ch",num))) # TODO could let the user name these
             end
 
         end
