@@ -318,7 +318,7 @@ function OCPdef!(n::NLOpt{T}) where { T <: Number }
                     n.r.ocp.dynCon[int][j,st] = @NLconstraint(n.ocp.mdl, 0. == dynamics_expr[int][j,st])
                 end
             end
-
+            ch = Array{Any}(undef, length(n.ocp.NLcon))
             # additional constraints
             for num in 1:length(n.ocp.NLcon)
                 ch = addCon(n,x_int,u_int,L,num)
