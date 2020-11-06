@@ -55,7 +55,7 @@ Author: Huckleberry Febbo, Graduate Student, University of Michigan
 Date Create: 6/29/2017, Last Modified: 12/06/2019 \n
 -------------------------------------------------------------------------------------\n
 """
-function NLExpr(n::NLOpt, expr::Expr, args...)#::Vector{JuMP.NonlinearExpression}
+function NLExpr(n::NLOpt, expr::Expr, args...)::Vector{JuMP.NonlinearExpression}
 #function NLExpr(n::NLOpt,expr::Expr,args...)
 
     if length(args) == 3
@@ -129,5 +129,5 @@ function NLCon(n::NLOpt,expr::Expr,args...)::Vector{JuMP.NonlinearConstraint}
 
     @NLconstraint($n.ocp.mdl,[j=1:$L],$expr)
   end
-  return eval(code)
+  return NLOptControl.eval(code)
 end
