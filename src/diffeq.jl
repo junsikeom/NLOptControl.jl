@@ -70,7 +70,7 @@ function NLExpr(n::NLOpt, expr::Expr, args...)::Vector{JuMP.NonlinearExpression}
         error("The length of the args... ($(length(args))) must be either 3 or 0")
     end
 
-    code = quote
+    #code = quote
         # rename state variables
         state = Array{Expr}(undef, $n.ocp.state.num)
         for st in 1:$n.ocp.state.num
@@ -86,7 +86,7 @@ function NLExpr(n::NLOpt, expr::Expr, args...)::Vector{JuMP.NonlinearExpression}
         end
 
         @NLexpression($n.ocp.mdl, [j=1:$L], $expr)
-    end
+    #end
 
     return NLOptControl.eval(code)
 
