@@ -100,7 +100,7 @@ function defineSolver!(n, kw)
     if typeof(kw)!=Dict{Symbol,Symbol}
       kw = Dict(kw)
     end
-    
+
     # Default solver name is :Ipopt
     if haskey(kw, :name)
         n.s.ocp.solver.name = kw[:name]
@@ -118,7 +118,7 @@ function defineSolver!(n, kw)
     # Setup MPC Solver Settings (if they exist)
     if mpc_defaults
         if n.s.ocp.solver.name == :Ipopt
-            n.s.ocp.solver.settings = NLOptControl.NLOptBase._Ipopt_MPC
+            n.s.ocp.solver.settings = NLOptControl._Ipopt_MPC
         else
             error("Solver $(n.s.ocp.solver.name) not defined.")
         end
