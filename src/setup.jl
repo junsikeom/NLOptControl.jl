@@ -145,10 +145,10 @@ function defineSolver!(n, kw)
         setsolver(
             n.ocp.mdl,
             Ipopt.IpoptSolver(;
-                max_cpu_time               = n.s.ocp.solver.settings[:max_cpu_time],
+                max_cpu_time               = 10000, #n.s.ocp.solver.settings[:max_cpu_time],
                 print_level                = n.s.ocp.solver.settings[:print_level],
                 warm_start_init_point      = n.s.ocp.solver.settings[:warm_start_init_point],
-                max_iter                   = n.s.ocp.solver.settings[:max_iter],
+                max_iter                   = 100000, #.s.ocp.solver.settings[:max_iter],
                 tol                        = n.s.ocp.solver.settings[:tol],
                 dual_inf_tol               = n.s.ocp.solver.settings[:dual_inf_tol],
                 constr_viol_tol            = n.s.ocp.solver.settings[:constr_viol_tol],
