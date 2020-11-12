@@ -898,6 +898,7 @@ end
 """
 """
 function updateX0!(n::NLOpt,args...)
+  println("running updateX0")
  # need to map n.r.ip.X0p to n.X0 (states may be different)
  # NOTE for the :OCP mode this is OK
 
