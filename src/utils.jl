@@ -904,6 +904,7 @@ function updateX0!(n::NLOpt,args...)
  if !n.s.mpc.predictX0 #  use the current known plant state to update OCP
    push!(n.r.ip.X0p,currentIPState(n))
  else
+   println("running predictX0")
    predictX0!(n)
  end
 
