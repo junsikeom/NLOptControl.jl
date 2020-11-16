@@ -207,6 +207,7 @@ Date Create: 2/06/2017, Last Modified: 12/06/2019 \n
 --------------------------------------------------------------------------------------\n
 """
 function linearSpline(t::Vector, V::Vector)
+    println("running linearSpline")
     if !isequal(length(t),length(V))
         error("!isequal(length(t),length(V))")
     end
