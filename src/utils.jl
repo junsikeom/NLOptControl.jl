@@ -921,6 +921,7 @@ function updateX0!(n::NLOpt,args...)
    end
    push!(n.r.ocp.X0, n.ocp.X0)    # NOTE this may be for saving data
    setvalue(n.ocp.t0, copy(n.r.ip.X0p[end][2]))
+   println(n.ocp.t0)
  else
   error("not set up for this mode")
  end
